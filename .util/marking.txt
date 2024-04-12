@@ -4,17 +4,15 @@ rootdir: /home/runner/work/Assessment-Backend-Week-1/Assessment-Backend-Week-1
 collected 0 items / 1 error
 
 !!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
-=============================== 1 error in 0.15s ===============================
+=============================== 1 error in 0.17s ===============================
 ************* Module app
 days_api/app.py:12:0: E0401: Unable to import 'pysnooper' (import-error)
 days_api/app.py:45:4: W0702: No exception type(s) specified (bare-except)
 days_api/app.py:61:4: W0702: No exception type(s) specified (bare-except)
-days_api/app.py:87:4: W2301: Unnecessary ellipsis constant (unnecessary-ellipsis)
-days_api/app.py:93:4: W2301: Unnecessary ellipsis constant (unnecessary-ellipsis)
-days_api/app.py:5:0: W0611: Unused date imported from datetime (unused-import)
+days_api/app.py:104:4: W0702: No exception type(s) specified (bare-except)
 days_api/app.py:7:0: W0611: Unused Response imported from flask (unused-import)
-days_api/app.py:9:0: W0611: Unused get_current_age imported from date_functions (unused-import)
+days_api/app.py:12:0: W0611: Unused import pysnooper (unused-import)
 
 ------------------------------------------------------------------
-Your code has been rated at 8.12/10 (previous run: 8.12/10, +0.00)
+Your code has been rated at 8.67/10 (previous run: 8.67/10, +0.00)
 
