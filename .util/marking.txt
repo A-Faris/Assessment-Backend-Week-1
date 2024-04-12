@@ -1,0 +1,32 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.9, pytest-8.1.1, pluggy-1.4.0
+rootdir: /home/runner/work/Assessment-Backend-Week-1/Assessment-Backend-Week-1
+collected 112 items
+
+days_api/test_api.py FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF [ 45%]
+FFFFFFFFFFFFFFFFFFFFFF                                                   [ 65%]
+days_api/test_date_functions.py FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF  [100%]
+
+============================= 112 failed in 0.34s ==============================
+************* Module app
+days_api/app.py:5:0: W0611: Unused date imported from datetime (unused-import)
+days_api/app.py:7:0: W0611: Unused Response imported from flask (unused-import)
+days_api/app.py:7:0: W0611: Unused request imported from flask (unused-import)
+days_api/app.py:9:0: W0611: Unused convert_to_datetime imported from date_functions (unused-import)
+days_api/app.py:9:0: W0611: Unused get_day_of_week_on imported from date_functions (unused-import)
+days_api/app.py:9:0: W0611: Unused get_days_between imported from date_functions (unused-import)
+days_api/app.py:9:0: W0611: Unused get_current_age imported from date_functions (unused-import)
+************* Module date_functions
+days_api/date_functions.py:6:0: C0116: Missing function or method docstring (missing-function-docstring)
+days_api/date_functions.py:6:24: W0613: Unused argument 'date_val' (unused-argument)
+days_api/date_functions.py:10:0: C0116: Missing function or method docstring (missing-function-docstring)
+days_api/date_functions.py:10:21: W0613: Unused argument 'first' (unused-argument)
+days_api/date_functions.py:10:38: W0613: Unused argument 'last' (unused-argument)
+days_api/date_functions.py:14:0: C0116: Missing function or method docstring (missing-function-docstring)
+days_api/date_functions.py:14:23: W0613: Unused argument 'date_val' (unused-argument)
+days_api/date_functions.py:18:0: C0116: Missing function or method docstring (missing-function-docstring)
+days_api/date_functions.py:18:20: W0613: Unused argument 'birthdate' (unused-argument)
+
+------------------------------------------------------------------
+Your code has been rated at 2.00/10 (previous run: 2.00/10, +0.00)
+

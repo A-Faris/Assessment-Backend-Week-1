@@ -1,0 +1,53 @@
+name: Assessment
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+permissions: write-all
+jobs:
+  assess:
+    name: Assess
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the code
+      - name: Checkout
+        uses: actions/checkout@v4
+      # Install Python
+      - name: Install Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      # Install required packages
+      - name: Install packages
+        run: |
+          pip3 install -r ./days_api/requirements.txt
+          pip3 install pytest pylint
+      # Run pytest
+      - name: Run tests
+        run: pytest
+      # Write Pytest overview results to a file
+      - name: Record test results
+        if: '!cancelled()'
+        run: |
+          pytest -r N --tb=no > .util/marking.txt || true
+      # Run pylint
+      - name: Run linter
+        if: '!cancelled()'
+        run: pylint --fail-under=8 ./days_api/*.py
+      # Write Pylint overview results to a file
+      - name: Record linter results
+        if: '!cancelled()'
+        run: |
+          pylint --fail-under=0 --score=y --reports=n ./days_api/*.py >> .util/marking.txt || true
+      # Commit results
+      - name: Push results
+        if: '!cancelled()'
+        run: |
+          git config --global user.name 'Peritract'
+          git config --global user.email 'peritract@users.noreply.github.com'
+          git add .util/marking.txt
+          git commit -m "Assessment testing"
+          git push
