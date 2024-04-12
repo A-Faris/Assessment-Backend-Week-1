@@ -64,7 +64,7 @@ def weekday():
 
 
 @app.route("/history", methods=["GET"])
-def get_history():
+def history():
     """Returns details on the last number of requests to the API"""
     add_to_history(request)
 
@@ -91,6 +91,8 @@ def delete_history():
 @app.route("/current_age", methods=["GET"])
 def current_age():
     """Returns a current age in years based on a given birthdate."""
+    add_to_history(request)
+
     args = request.args.to_dict()
     birthdate = args.get("date")
 
@@ -98,9 +100,7 @@ def current_age():
         return {"error": "Date parameter is required."}, 400
 
     try:
-        age = get_current_age(birthdate)
-        add_to_history(request)
-        return {"current_age": age}
+        return {"current_age": get_current_age(birthdate)}
     except:
         return {"error": "Value for data parameter is invalid."}, 400
 
