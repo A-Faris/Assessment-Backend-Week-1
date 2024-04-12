@@ -51,6 +51,8 @@ def between():
 @app.route("/weekday", methods=["POST"])
 def weekday():
     """Returns the day of the week a specific date is"""
+    add_to_history(request)
+
     data = request.get_json()
     if "date" not in data.keys():
         return {"error": "Missing required data."}, 400
@@ -58,16 +60,24 @@ def weekday():
         week = convert_to_datetime(data["date"])
     except:
         return {"error": "Unable to convert value to datetime."}, 400
-    return {"weekday": get_day_of_week_on(week)}
+    return {"weekday": get_day_of_week_on(week)}, 200
 
 
 @app.route("/history", methods=["GET"])
 @pysnooper.snoop()
 def get_history():
     """Returns details on the last number of requests to the API"""
-    data = request.args.to_dict()["number"]
-    if not isinstance(data, int) or not 0 < int(data) <= 20:
+    add_to_history(request)
+
+    args = request.args.to_dict()
+    number = args.get("number")\
+
+    if not number.isdigit() or not 1 <= int(number) <= 20:
         return {"error": "Number must be an integer between 1 and 20."}, 400
+
+    if number:
+        return app_history[:-int(number)], 200
+    return app_history[:-5], 200
 
 
 @app.route("/history", methods=["DELETE"])
