@@ -6,7 +6,7 @@ from datetime import datetime, date
 def convert_to_datetime(date_val: str) -> datetime:
     """Change from sting to datetime"""
     try:
-        return datetime.strptime(date_val, "%d.%m.%Y")
+        return datetime.strptime(str(date_val), "%d.%m.%Y")
     except ValueError as error:
         raise ValueError("Unable to convert value to datetime.") from error
 
