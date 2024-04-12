@@ -4,12 +4,10 @@
 
 from datetime import datetime, date
 
-from flask import Flask, Response, request, jsonify
+from flask import Flask, request, jsonify
 
 from date_functions import (convert_to_datetime, get_day_of_week_on,
                             get_days_between, get_current_age)
-
-import pysnooper
 
 app_history = []
 
@@ -42,7 +40,7 @@ def between():
     try:
         first = convert_to_datetime(data["first"])
         last = convert_to_datetime(data["last"])
-    except:
+    except ValueError:
         return {"error": "Unable to convert value to datetime."}, 400
 
     return {"days": get_days_between(first, last)}
@@ -58,7 +56,7 @@ def weekday():
         return {"error": "Missing required data."}, 400
     try:
         week = convert_to_datetime(data["date"])
-    except:
+    except ValueError:
         return {"error": "Unable to convert value to datetime."}, 400
     return {"weekday": get_day_of_week_on(week)}, 200
 
@@ -101,7 +99,7 @@ def current_age():
 
     try:
         return {"current_age": get_current_age(birthdate)}
-    except:
+    except TypeError:
         return {"error": "Value for data parameter is invalid."}, 400
 
 
