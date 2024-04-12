@@ -64,7 +64,6 @@ def weekday():
 
 
 @app.route("/history", methods=["GET"])
-@pysnooper.snoop()
 def get_history():
     """Returns details on the last number of requests to the API"""
     add_to_history(request)
@@ -75,22 +74,35 @@ def get_history():
     if not number.isdigit():
         return {"error": "Number must be an integer between 1 and 20."}, 400
 
-    if not 1 <= int(number) <= 20:
+    number = int(number)
+    if not 1 <= number <= 20:
         return {"error": "Number must be an integer between 1 and 20."}, 400
 
-    return app_history[:-int(number)], 200
+    return app_history[::-1][:number], 200
 
 
 @app.route("/history", methods=["DELETE"])
 def delete_history():
     """Deletes details of all previous requests to the API"""
-    ...
+    app_history.clear()
+    return {"status": "History cleared"}, 200
 
 
 @app.route("/current_age", methods=["GET"])
 def current_age():
     """Returns a current age in years based on a given birthdate."""
-    ...
+    args = request.args.to_dict()
+    birthdate = args.get("date")
+
+    if not birthdate and not isinstance(birthdate, date):
+        return {"error": "Date parameter is required."}, 400
+
+    try:
+        age = get_current_age(birthdate)
+        add_to_history(request)
+        return {"current_age": age}
+    except:
+        return {"error": "Value for data parameter is invalid."}, 400
 
 
 if __name__ == "__main__":
