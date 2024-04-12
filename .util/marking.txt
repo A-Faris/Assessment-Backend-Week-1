@@ -1,18 +1,14 @@
 ============================= test session starts ==============================
 platform linux -- Python 3.11.9, pytest-8.1.1, pluggy-1.4.0
 rootdir: /home/runner/work/Assessment-Backend-Week-1/Assessment-Backend-Week-1
-collected 0 items / 1 error
+collected 112 items
 
-!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!
-=============================== 1 error in 0.17s ===============================
-************* Module app
-days_api/app.py:12:0: E0401: Unable to import 'pysnooper' (import-error)
-days_api/app.py:45:4: W0702: No exception type(s) specified (bare-except)
-days_api/app.py:61:4: W0702: No exception type(s) specified (bare-except)
-days_api/app.py:104:4: W0702: No exception type(s) specified (bare-except)
-days_api/app.py:7:0: W0611: Unused Response imported from flask (unused-import)
-days_api/app.py:12:0: W0611: Unused import pysnooper (unused-import)
+days_api/test_api.py ................................................... [ 45%]
+......................                                                   [ 65%]
+days_api/test_date_functions.py .......................................  [100%]
 
-------------------------------------------------------------------
-Your code has been rated at 8.65/10 (previous run: 8.65/10, +0.00)
+============================= 112 passed in 0.25s ==============================
+
+--------------------------------------------------------------------
+Your code has been rated at 10.00/10 (previous run: 10.00/10, +0.00)
 
