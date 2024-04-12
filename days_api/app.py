@@ -70,14 +70,15 @@ def get_history():
     add_to_history(request)
 
     args = request.args.to_dict()
-    number = args.get("number")\
+    number = args.get("number", "5")
 
-    if not number.isdigit() or not 1 <= int(number) <= 20:
+    if not number.isdigit():
         return {"error": "Number must be an integer between 1 and 20."}, 400
 
-    if number:
-        return app_history[:-int(number)], 200
-    return app_history[:-5], 200
+    if not 1 <= int(number) <= 20:
+        return {"error": "Number must be an integer between 1 and 20."}, 400
+
+    return app_history[:-int(number)], 200
 
 
 @app.route("/history", methods=["DELETE"])
