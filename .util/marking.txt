@@ -7,7 +7,7 @@ days_api/test_api.py FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF [ 45%]
 FFFFFFFFFFFFFFFFFFFFFF                                                   [ 65%]
 days_api/test_date_functions.py FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF  [100%]
 
-============================= 112 failed in 0.34s ==============================
+============================= 112 failed in 0.30s ==============================
 ************* Module app
 days_api/app.py:5:0: W0611: Unused date imported from datetime (unused-import)
 days_api/app.py:7:0: W0611: Unused Response imported from flask (unused-import)
