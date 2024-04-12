@@ -8,14 +8,13 @@ collected 0 items / 1 error
 ************* Module app
 days_api/app.py:12:0: E0401: Unable to import 'pysnooper' (import-error)
 days_api/app.py:45:4: W0702: No exception type(s) specified (bare-except)
-days_api/app.py:59:4: W0702: No exception type(s) specified (bare-except)
-days_api/app.py:66:0: R1710: Either all return statements in a function should return an expression, or none of them should. (inconsistent-return-statements)
-days_api/app.py:76:4: W2301: Unnecessary ellipsis constant (unnecessary-ellipsis)
-days_api/app.py:82:4: W2301: Unnecessary ellipsis constant (unnecessary-ellipsis)
+days_api/app.py:61:4: W0702: No exception type(s) specified (bare-except)
+days_api/app.py:86:4: W2301: Unnecessary ellipsis constant (unnecessary-ellipsis)
+days_api/app.py:92:4: W2301: Unnecessary ellipsis constant (unnecessary-ellipsis)
 days_api/app.py:5:0: W0611: Unused date imported from datetime (unused-import)
 days_api/app.py:7:0: W0611: Unused Response imported from flask (unused-import)
 days_api/app.py:9:0: W0611: Unused get_current_age imported from date_functions (unused-import)
 
 ------------------------------------------------------------------
-Your code has been rated at 7.76/10 (previous run: 7.76/10, +0.00)
+Your code has been rated at 8.12/10 (previous run: 8.12/10, +0.00)
 
